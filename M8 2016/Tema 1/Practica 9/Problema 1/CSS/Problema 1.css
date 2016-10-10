@@ -1,0 +1,15 @@
+﻿*
+{
+	margin: 0 auto;
+}
+h1{
+	color: rgba(0,92,0,0.6);
+	border-bottom: double 3px rgba(0,32,0,0.55);
+}
+p, h2{
+	text-align: center;
+	font-family: Calibri;
+}
+h2{
+	margin-top: 15px;
+}
