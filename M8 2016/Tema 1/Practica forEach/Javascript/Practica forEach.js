@@ -10,10 +10,14 @@
 var nombres = new Array();
 
 function obtenerDatos(){
-	var inputs = document.getElementsByTagName("input");
+	var datos	= document.getElementById("formulario");
 	
-	for( var i=0 ; i<inputs.length ; i++ ){
-		nombres.push( document.getElementById("nom"+ (i +1)).value );
+	//var inputs = document.getElementsByTagName("input");
+	
+	for( var i=0 ; i<datos.length ; i++ ){
+		if( datos[i].type != "submit" ){
+			nombres.push( document.getElementById("nom"+ (i +1)).value );
+		}
 	}
 }
 
