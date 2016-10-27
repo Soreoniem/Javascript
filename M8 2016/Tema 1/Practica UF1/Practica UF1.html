@@ -1,0 +1,121 @@
+﻿<html> 
+<head> 
+	<title>Practica UF1</title> 
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+	<!--CSS--> 
+	<link rel="stylesheet" type="text/css" href=".\CSS\Practica UF1.css"/> 
+	<link rel="stylesheet" type="text/css" href=".\CSS\colores.css"/>
+	<link rel="stylesheet" type="text/css" href=".\CSS\configuracion.css"/>
+	
+	<!--JQuery--> 
+	<script type="text/javascript" src=".\JQuery\JQuery.js"></script> 
+	
+	<!--Javascript--> 
+	<script type="text/javascript" src=".\Javascript\Javascript - Metodos de ayuda.js"></script> 
+	<script type="text/javascript" src=".\Javascript\Practica UF1.js"></script> 
+</head>
+<body onload="iniciar(), actualizarDatos()">
+	<h1 class="fondoLima_Transparente">Crea tu propio horario</h1>
+	
+	<h2>Configuraciones</h2>
+	<!--
+		      Horas      Semanas
+		inicial final     Martes
+		   intervalo
+	-->
+	<div id="configuracion">
+
+<!-- Titulos -->
+		<div id="confTitHoras">
+			Horas
+		</div>
+		<div id="confSemanas">
+			<div id="confSemTitulo">
+				Semanas
+			</div>
+			<div id="confSemCaja">
+				<div id="confSemDato">
+					50
+				</div>
+				<div id="confSemCajaMas">
+					+
+				</div>
+				<div id="confSemCajaMenos">
+					-
+				</div>
+			</div>
+			<!--
+			<div id="confSemMas" class="fondoAzul_Transparente">
+				+
+			</div>
+			<div id="confSemMenos" class="fondoRosa_Transparente">
+				-
+			</div>
+			-->
+		</div>
+		
+		<div id="confHoras">
+<!-- Inicio -->
+			<div id="confHorInicio">
+				
+				<div id="confHorIniTitulo">
+					Inicio
+				</div>
+				<div id="confHorIniDato">
+					50
+				</div>
+				<div id="confHorIniMas">
+					+
+				</div>
+				<div id="confHorIniMenos">
+					-
+				</div>
+			</div>
+<!-- Final -->
+			<div id="confHorFinal">
+				
+				<div id="confHorFinTitulo">
+					Final
+				</div>
+				<div id="confHorFinDato">
+					50
+				</div>
+				<div id="confHorFinMas">
+					+
+				</div>
+				<div id="confHorFinMenos">
+					-
+				</div>
+			</div>
+			<div id="confHorMedio">
+				
+				<div id="confHorMedTitulo">
+					Distancia entre horas
+				</div>
+				<div id="confHorMedDato">
+					50
+				</div>
+				<div id="confHorMedMas">
+					+
+				</div>
+				<div id="confHorMedMenos">
+					-
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="configuraciones">
+		Horas: de <input id="horaInicio" type="number" value="8" onchange="actualizarDatos()"/> a <input id="horaFinal" type="number" value="10" onchange="actualizarDatos()"/><br/>
+		Espacio entre horas: <input id="horaTiempo" type="number" value="25" onchange="actualizarDatos()"/> <span style="font-size: 0.7em;">(minutos)</span><br/>
+		Días de la semana: <input id="diasSemana" type="number" value="5" onchange="actualizarDatos()"/>
+	</div>
+	<!--
+		Hora | Lunes | Martes | Miercoles | Jueves | Viernes
+	-->
+	<div id="tablaDiv">
+	</div>
+	<!--
+		Opcional: Sabado y Domingo
+	-->
+</body>
+</html>

@@ -1,0 +1,96 @@
+﻿/*
+	relative = se mueve por su alrededor
+	absolute = se mueve por su alrededor quitanfo el flujo
+	fixed = se mueve por la ventana
+	
+	float = flotar a algún lado del padre;
+	
+	Animaciones
+	
+		• Retraso (timepo) (www.w3schools.com/cssref/css3_pr_animation-delay.asp)
+		animation-delay: .5s, 0s;
+		
+		• Duración (www.w3schools.com/cssref/css3_pr_animation-duration.asp)
+		animation-duration: 5s, 1s;
+
+		• Nombre (www.w3schools.com/cssref/css3_pr_animation-name.asp)
+		animation-name: caer, girarY;
+
+		• Mantener el final de la animación (www.w3schools.com/cssref/css3_pr_animation-fill-mode.asp)
+		animation-fill-mode: forwards;
+		
+		• Cuantas veces (www.w3schools.com/cssref/css3_pr_animation-iteration-count.asp)
+		animation-iteration-count: infinite, infinite;
+		
+		• FPS (www.w3schools.com/cssref/css3_pr_animation-timing-function.asp)
+		animation-timing-function: steps(200), steps(60);
+		
+		· Completo
+		animation: girarY 1s steps(60) infinite;
+*/
+																	/*
+		  ╔════════════╗
+		  ║   TÍTULO   ║
+	┌──╦┐ ╠────────────╣ ┌╦───────────────────────────────────────┐
+	│  ╚══╝            ╚══╝                                       │
+	│ Mensaje . . .                                               │
+	└─────────────────────────────────────────────────────────────┘ */
+/*
+WEB
+	Generador de [Transiciones] (animacion)
+		matthewlein.com/ceaser/
+	---	
+		background-image: url("../Imgs/sprites_final.png");
+	
+		animation: sprite .3s steps(24) infinite;
+		30s =   1 fps
+		.3s = 100 fps
+		.5s =   60 fps
+	
+	@keyframes sprite{
+		100%{
+			background-position: -7224px;
+		}
+	}
+	---
+		calculo:
+		7224 /24 = 301
+		(300 +1) *24 frames = 7224
+	---
+	
+	relative = se mueve por su alrededor
+	absolute = se mueve por su alrededor quitanfo el flujo
+	fixed = se mueve por la ventana
+	
+	float = flotar a algún lado del padre;
+   ---
+   Degradados
+	background: linear-gradient(135deg, rgba(0,0,0,0) 20%, red);
+		linear-gradient
+		radial-gradient
+		repeating-linear-gradient
+		
+		radial-gradient(circle, ...)
+		
+		(probar: exactamente no se lo que hacen)
+		radial-gradient(closest-side at 60% 55%) encoger dentro
+		radial-gradient(farthest-side at 60% 55%) estirar dentro
+		radial-gradient(farthest-corner at 60% 55%) estirar dentro
+   ---
+	Tu propia fuente
+	@font-face {
+		font-family: Minecraft;
+		src: url("/recursos/fuentes/Minecrafter.Alt.ttf");
+	}
+*/
+
+*
+{
+	margin: 0 auto;
+}
+
+/*Elimiar al conectar CSS*/
+.conectarCSS {
+	color: green;
+    font-weight: bold;
+}

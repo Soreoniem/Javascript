@@ -1,0 +1,10 @@
+﻿#confTitHoras, #confSemTitulo{
+	padding-top: 10px;
+	font-size: 1.5em;
+	background-color: whitesmoke;
+}
+
+#confHorIniTitulo, #confHorFinTitulo{
+	background-color: rgba(92, 92, 255, 1);
+	color: whitesmoke;
+}
