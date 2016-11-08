@@ -32,19 +32,25 @@
 	var horaTiempo	= nuevoAleatorio(25, 60);
 
 function iniciar(){
+	
+	// Mostrar tabla con datos aleatorios
+	
+	var doc = document;
 	var aleaHoraInicio = nuevoAleatorio(8, 13);
-	document.getElementById("horaInicio").value	= aleaHoraInicio;
+	doc.getElementById("confIniCajDato").innerHTML = aleaHoraInicio;
 	
 	var aleaHoraFinal;
 	do{
 		aleaHoraFinal = nuevoAleatorio(11, 21);
 	} while( aleaHoraInicio >= aleaHoraFinal );
 		
-	document.getElementById("horaFinal").value	= aleaHoraFinal;
+	doc.getElementById("confFinCajDato").innerHTML = aleaHoraFinal;
 	
-	
-	document.getElementById("horaTiempo").value	= nuevoAleatorio(24, 60);
-	document.getElementById("diasSemana").value	= nuevoAleatorio(4, 7) +1;
+	doc.getElementById("confIntCajDato").innerHTML = nuevoAleatorio(24, 60);
+	doc.getElementById("confSemCajDato").innerHTML = tablaCabecera[nuevoAleatorio(3, 7) +1];
+
+	actualizarDatos();
+	actualizarTamañoVentana();
 }
 
 function crearTablaDatos(){
@@ -60,13 +66,14 @@ function crearTablaDatos(){
 	//imprimirArray("tablaDatos[0][0]", tablaDatos[0][0]);
 }
 
+// Guarda los datos de la tabla (los que hayan puestos)
 function guardarDatos(){
+	
 	crearTablaDatos();
 	// obtener los TD de las tablas
 	var TDs = document.getElementsByTagName("td");
 	var horas, minutos, tdActual;
 	
-	//* Esperando constructor de los datos
 	for( var i=0, j=0 ; i<TDs.length ; i++, j++ ){
 		tdActual = TDs[i];
 		// Son horas
@@ -109,44 +116,182 @@ function guardarDatos(){
 	// */
 }
 
-function actualizarDatos(){
+function actualizarDatos(objeto){
+	if( ! comprobarVariable(objeto, "undefined") ){
+		var doc			= document;
+		var id			= objeto.getAttribute("id");
+		var imagen		= objeto.children[0];
+		var carpetaIMGs	= "./Imgs/";
+		var flecha		= imagen.getAttribute("src").substr(7);
+			flecha		= flecha.substr(0, (flecha.length -4));
+		
+		
+		if( flecha != "oculto" ){
+			
+			// Inicial
+			if( id == "confIniCajSubir" ){ horaInicial++; }
+			if( id == "confIniCajBajar" ){ horaInicial--; }
+			// Final
+			if( id == "confFinCajSubir" ){ horaFinal++; }
+			if( id == "confFinCajBajar" ){ horaFinal--; }
+			// Semanas
+			if( id == "confSemCajSubir" ){ tablaPieAncho++; }
+			if( id == "confSemCajBajar" ){ tablaPieAncho--; }
+			// Intervalo
+			if( id == "confIntCajSubir" ){ horaTiempo++; }
+			if( id == "confIntCajBajar" ){ horaTiempo--; }
+		}
+	}
+	// Guardar datos de la tabla
 	guardarDatos();
 	
-	horaInicial = parseInt(document.getElementById("horaInicio").value);
-	horaFinal = parseInt(document.getElementById("horaFinal").value);
-	horaTiempo = parseInt(document.getElementById("horaTiempo").value);
-	tablaPieAncho = parseInt(document.getElementById("diasSemana").value) +1;
-	
-	// Corrige el 0 de la hora inicial
+	// Hora inicial: Evita poner un -1
 	if( horaInicial < 0 ){
 		horaInicial = 0;
 	}
-	// Corrige el 1 de la hora final
+	
+	// Hora final: Solo puede poner de (1h a 24h)
 	if( horaFinal < 1 ){
 		horaFinal = 1;
+	} else if( horaFinal > 24 ) {
+		horaFinal = 24;
 	}
+	
+	// Evita que hora Inicial y final tenga en mismo número
 	if( horaInicial >= horaFinal ){
 		horaFinal	= horaInicial;
 		horaInicial	= horaFinal -1;
 	}
 	
-	document.getElementById("horaInicio").value	= horaInicial;
-	document.getElementById("horaFinal").value	= horaFinal;
+	// Hora inicial y final correcto
+	document.getElementById("confIniCajDato").innerHTML = horaInicial;
+	document.getElementById("confFinCajDato").innerHTML = horaFinal;
 	
-	if( horaTiempo <1 ){
+	// El intervalo de horas no podrá ser menor a 1
+	if( horaTiempo < 1 ){
 		horaTiempo = 1;
 	}
-	document.getElementById("horaTiempo").value	= horaTiempo;
+	document.getElementById("confIntCajDato").innerHTML	= horaTiempo;
 	
+	// El ancho de la tabla no podrá ser inferior a 2 (Hora y Lunes)
 	if( tablaPieAncho < 2 ){
 		tablaPieAncho = 2;
-		document.getElementById("diasSemana").value = 1;
+	
+	// Y tampoco superior a 8 (Hora + semanas)
 	} else if( tablaPieAncho > 8 ){
 		tablaPieAncho = 8;
-		document.getElementById("diasSemana").value = 7;
+	}
+	document.getElementById("confSemCajDato").innerHTML = tablaCabecera[tablaPieAncho -1];
+	actualizarTabla()
+	visualizarFlechas();
+}
+
+function mouseEnterFlecha(objeto){
+	//var doc			= document;
+	var id			= objeto.getAttribute("id");
+	var imagen		= objeto.children[0];
+	var carpetaIMGs	= "./Imgs/";
+	var flecha		= imagen.getAttribute("src").substr(7);
+		flecha		= flecha.substr(0, (flecha.length -4));
+	
+	if( flecha != "oculto" ){
+		imagen.setAttribute("src", carpetaIMGs +"flecha hover.png");
+	}
+}
+function mouseSalirFlecha(objeto){
+	//var doc			= document;
+	var id			= objeto.getAttribute("id");
+	var imagen		= objeto.children[0];
+	var carpetaIMGs	= "./Imgs/";
+	var flecha		= imagen.getAttribute("src").substr(7);
+		flecha		= flecha.substr(0, (flecha.length -4));
+	
+	if( flecha != "oculto" ){
+		imagen.setAttribute("src", carpetaIMGs +"flecha.png");
+	}
+}
+function mousePresionarFlecha(objeto){
+	//var doc			= document;
+	var id			= objeto.getAttribute("id");
+	var imagen		= objeto.children[0];
+	var carpetaIMGs	= "./Imgs/";
+	var flecha		= imagen.getAttribute("src").substr(7);
+		flecha		= flecha.substr(0, (flecha.length -4));
+	
+	if( flecha == "flecha hover" ){
+		imagen.setAttribute("src", carpetaIMGs +"flecha active.png");
+	}
+}
+
+// Oculta o muestra las flechas que pueden usarse
+function visualizarFlechas(){
+	var doc = document;
+	var carpetaIMGs = "./Imgs/";
+	
+	//• Preparar array de datos
+	var ocultarFlechas = [
+		["confIniCaj", false, false],
+		["confFinCaj", false, false],
+		["confIntCaj", false, false],
+		["confSemCaj", false, false]
+		];
+	
+	//• Preguntas (if)
+	
+	// Hora Inicial
+	if( horaInicial +1 == horaFinal ){
+		ocultarFlechas[0][1] = true;
+	}
+	if( horaInicial == 0 ){
+		ocultarFlechas[0][2] = true;
 	}
 	
-	actualizarTabla()
+	// Hora Final
+	if( horaFinal == 24 ){
+		ocultarFlechas[1][1] = true;
+	}
+	if( horaFinal == 1 ){
+		ocultarFlechas[1][2] = true;
+	}
+	
+	// Hora Intervalo
+	// No hay condición en subir
+	if( horaTiempo == 1 ){
+		ocultarFlechas[2][2] = true;
+	}
+	
+	// Semanas
+	if( tablaPieAncho == 8 ){
+		ocultarFlechas[3][1] = true;
+	}
+	if( tablaPieAncho == 2 ){
+		ocultarFlechas[3][2] = true;
+	}
+	
+	var subirBajar = [null, "Subir", "Bajar"];
+	// Recorre las cajas
+	for( var i=0 ; i<ocultarFlechas.length ; i++ ){
+		
+		// Recorre subir o bajar
+		for( var j=1 ; j<=2 ; j++ ){
+			
+			// Llama al id
+			//	.childen[0] es la imagen
+			// cambio el atributo
+			var imagen = doc.getElementById(ocultarFlechas[i][0] + subirBajar[j]).children[0];
+			
+			if( ocultarFlechas[i][j] ){
+				imagen.setAttribute("src", carpetaIMGs +"oculto.png");
+			
+			} else {
+				if( imagen.getAttribute("src") == carpetaIMGs +"flecha active.png" ){
+					imagen.setAttribute("src", carpetaIMGs +"flecha hover.png");
+				} else {
+					imagen.setAttribute("src", carpetaIMGs +"flecha.png");
+				}
+			}
+		}
+	}
 }
 
 function actualizarTabla(){
@@ -160,7 +305,7 @@ function actualizarTabla(){
 		
 // Tabla - Cabecera
 		infoTabla += "<thead>";
-			infoTabla += "<tr>";
+			infoTabla += "<tr class=\"bordeExterior\">";
 				for( var i=0 ; i<tablaPieAncho ; i++ ){
 					infoTabla += "<th>";
 						infoTabla += tablaCabecera[i];
@@ -185,7 +330,7 @@ function actualizarTabla(){
 			}
 			if( salir == false ){
 					
-				infoTabla += "<tr>";
+				infoTabla += "<tr class=\"bordeExterior\">";
 					
 					// Horas
 					infoTabla += "<td horas=\""+ horas +"\" minutos=\""+ minutos +"\">";
@@ -311,4 +456,25 @@ function actualizarTabla(){
 	infoTabla += "</table>";
 
 	tablaDiv.innerHTML = infoTabla;
+}
+
+// Actualiza el tamaño de la ventana poniendo el atributo en el body
+	// con las siglas de bootstrap
+function actualizarTamañoVentana(){
+	// Variables
+	var cuerpo			= document.body;
+	var ventanaAncho	= parseInt(window.innerWidth);
+	
+	if( ventanaAncho < 768 ){
+		cuerpo.setAttribute("tamaño", "xs");
+	
+	} else if( ventanaAncho < 992 ){
+		cuerpo.setAttribute("tamaño", "sm");
+	
+	} else if( ventanaAncho < 1200 ){
+		cuerpo.setAttribute("tamaño", "md");
+	
+	} else {
+		cuerpo.setAttribute("tamaño", "lg");
+	}
 }

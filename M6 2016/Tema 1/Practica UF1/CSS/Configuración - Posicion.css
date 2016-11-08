@@ -1,0 +1,412 @@
+﻿/*
+	relative = se mueve por su alrededor
+	absolute = se mueve por su alrededor quitanfo el flujo
+	fixed = se mueve por la ventana
+	
+	float = flotar a algún lado del padre;
+	
+	
+	Transiciones
+		transition-delay:        0.5s;
+		transition-duration:        0.75s;
+		transition-property:        top, height;
+		transition-timing-function: ease-in-out;
+			Ejemplos timing-function (Animación)(www.w3schools.com/css/tryit.asp?filename=trycss3_animation_speed)
+	
+	Animaciones
+	
+		• Retraso (timepo) (www.w3schools.com/cssref/css3_pr_animation-delay.asp)
+		animation-delay: .5s, 0s;
+		
+		• Duración (www.w3schools.com/cssref/css3_pr_animation-duration.asp)
+		animation-duration: 5s, 1s;
+
+		• Nombre (www.w3schools.com/cssref/css3_pr_animation-name.asp)
+		animation-name: caer, girarY;
+
+		• Mantener el final de la animación (www.w3schools.com/cssref/css3_pr_animation-fill-mode.asp)
+		animation-fill-mode: forwards;
+		
+		• Cuantas veces (www.w3schools.com/cssref/css3_pr_animation-iteration-count.asp)
+		animation-iteration-count: infinite, infinite;
+		
+		• FPS (www.w3schools.com/cssref/css3_pr_animation-timing-function.asp)
+		animation-timing-function: steps(200), steps(60);
+		
+		· Completo
+		animation: girarY 1s steps(60) infinite;
+*/
+																	/*
+		  ╔════════════╗
+		  ║   TÍTULO   ║
+	┌──╦┐ ╠────────────╣ ┌╦───────────────────────────────────────┐
+	│  ╚══╝            ╚══╝                                       │
+	│ Mensaje . . .                                               │
+	└─────────────────────────────────────────────────────────────┘ */
+/*
+WEB
+	Generador de [Transiciones] (animacion)
+		matthewlein.com/ceaser/
+	---	
+		background-image: url("../Imgs/sprites_final.png");
+	
+		animation: sprite .3s steps(24) infinite;
+		30s =   1 fps
+		.3s = 100 fps
+		.5s =   60 fps
+	
+	@keyframes sprite{
+		100%{
+			background-position: -7224px;
+		}
+	}
+	---
+		calculo:
+		7224 /24 = 301
+		(300 +1) *24 frames = 7224
+	---
+	
+	relative = se mueve por su alrededor
+	absolute = se mueve por su alrededor quitanfo el flujo
+	fixed = se mueve por la ventana
+	
+	float = flotar a algún lado del padre;
+   ---
+   Degradados
+	background: linear-gradient(135deg, rgba(0,0,0,0) 20%, red);
+		linear-gradient
+		radial-gradient
+		repeating-linear-gradient
+		
+		radial-gradient(circle, ...)
+		
+		(probar: exactamente no se lo que hacen)
+		radial-gradient(closest-side at 60% 55%) encoger dentro
+		radial-gradient(farthest-side at 60% 55%) estirar dentro
+		radial-gradient(farthest-corner at 60% 55%) estirar dentro
+   ---
+	Tu propia fuente
+	@font-face {
+		font-family: Minecraft;
+		src: url("/recursos/fuentes/Minecrafter.Alt.ttf");
+	}
+*/
+
+*
+{
+	margin: 0px;
+	padding: 0px;
+}
+h1{
+	color: rgba(0, 0, 128, 0.66);
+	text-align: center;
+	padding: 10px 0px;
+	margin-bottom:	1px;
+}
+#tablaDiv{
+	margin-left: 10%;
+	width: 80%;
+	
+		transition-duration:        0.9s;
+		transition-property:        width;
+		transition-timing-function: ease-out;
+}
+table *{
+	text-align: center;
+}
+table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table input{
+	width: 100%;
+	border: none;
+	background-color: transparent;
+}
+table input:focus{
+	outline: none;
+}
+
+/*	[► Configuración ◄] (por defecto) */
+#configuracion{
+	float:		left;
+	
+		transition-duration:        0.9s;
+		transition-property:        width, margin;
+		transition-timing-function: ease-out;
+}
+/*	[► Configuración ◄] (tamaños) */
+	[tamaño="xs"] #configuracion{
+		width:		96%;
+		margin:		0% 2%;
+		margin-bottom: 40px;
+	}
+	[tamaño="sm"] #configuracion{
+		width:		70%;
+		margin:		0% 15%;
+		margin-bottom: 40px;
+	}
+	[tamaño="md"] #configuracion{
+		width:		60%;
+		margin:		0% 20%;
+		margin-bottom: 40px;
+	}
+	[tamaño="lg"] #configuracion{
+		width:		50%;
+		margin:		0% 25%;
+		margin-bottom: 40px;
+	}
+
+/*	Configuración	→ [► Título ◄] → (Horas) */
+#confTitHoras{
+	float:		left;
+	width:		66%;
+	
+	text-align:	center;
+	font-size:	1.5em;
+	padding:	10px 0px;
+}
+
+/*	Configuración	→ [► Título ◄] → (Semanas) */
+#confTitSemanas{
+	float:		right;
+	width:		Calc(100% - 66%);
+	
+	text-align:	center;
+	font-size:	1.5em;
+	padding:	10px 0px;
+}
+
+/*	Configuración	→ [► Inicial ◄] */
+#confInicial{
+	float:		left;
+	width:		33%;
+	
+	text-align:	center;
+}
+
+/*	Configuración	→ Inicial	→ [► Título ◄] */
+#confIniTitulo{
+	float:		left;
+	width:		100%;
+	
+	font-size:	1.2em;
+}
+
+/*	Configuración	→ Inicial	→ [► Caja ◄]*/
+#confIniCaja{
+	position:	relative;
+	float:		left;
+	width:		100%;
+	z-index:	3;
+}
+
+/*	Configuración	→ Inicial	→ [► Subir ◄]*/
+#confIniCajSubir{
+	position:		relative;
+	width:			100%;
+	padding-top:	10px;
+	padding-bottom:	20px;
+	z-index:		3;
+	min-height:		18px;
+}
+
+/*	[► Bajar ◄]	(Imagen) */
+.flechaAbajo{
+	position:	absolute;
+	left:		Calc(50% - 12px);
+	width:		25px;
+	transform-origin:	50% 50%;
+}
+
+/*	[► Subir ◄]	(Imagen) */
+.flechaArriba{
+	position:	absolute;
+	left:		Calc(50% - 12px);
+	width:		25px;
+	transform-origin:	50% 50%;
+	transform:	rotate(180deg);
+}
+
+/*	Configuración	→ Inicial	→ [► Dato ◄]*/
+#confIniCajDato{
+	position:	absolute;
+	width:		100%;
+	
+	top:		35%;
+	font-size:	1.5em;
+	z-index:	2;
+}
+
+/*	Configuración	→ Inicial	→ [► Bajar ◄]*/
+#confIniCajBajar{
+	position:		relative;
+	width:			100%;
+	padding-top:	20px;
+	padding-bottom:	10px;
+	z-index:		3;
+	min-height:		18px;
+}
+
+/*	Configuración	→ [► Final ◄] */
+#confFinal{
+	float:		left;
+	width:		33%;
+	
+	text-align:	center;
+}
+
+/*	Configuración	→ Final	→ [► Título ◄] */
+#confFinTitulo{
+	float:		left;
+	width:		100%;
+	
+	font-size:	1.2em;
+}
+
+/*	Configuración	→ Final	→ [► Caja ◄]*/
+#confFinCaja{
+	position:	relative;
+	float:		left;
+	width:		100%;
+	z-index:	3;
+}
+
+/*	Configuración	→ Final	→ [► Subir ◄]*/
+#confFinCajSubir{
+	position:		relative;
+	width:			100%;
+	padding-top:	10px;
+	padding-bottom:	20px;
+	z-index:		3;
+	min-height:		18px;
+}
+
+/*	Configuración	→ Final	→ [► Dato ◄]*/
+#confFinCajDato{
+	position:	absolute;
+	width:		100%;
+	
+	top:		35%;
+	font-size:	1.5em;
+	z-index:	2;
+}
+
+/*	Configuración	→ Final	→ [► Bajar ◄]*/
+#confFinCajBajar{
+	position:		relative;
+	width:			100%;
+	padding-top:	20px;
+	padding-bottom:	10px;
+	z-index:		3;
+	min-height:		18px;
+}
+
+/*	Configuración	→ [► Semanas ◄] */
+#confSemanas{
+	float:		right;
+	width:		Calc(100% - 66%);
+	
+	text-align:	center;
+}
+
+/*	Configuración	→ Semanas	→ [► Título ◄] */
+#confSemTitulo{
+	float:		right;
+	width:		100%;
+	
+	font-size:	1.2em;
+}
+
+/*	Configuración	→ Semanas	→ [► Caja ◄] */
+#confSemCaja{
+	position:	relative;
+	float:		right;
+	width:		100%;
+	z-index:	3;
+}
+
+/*	Configuración	→ Semanas	→ [► Bajar ◄] */
+#confSemCajBajar{
+	position:		relative;
+	width:			100%;
+	padding-top:	30px;
+	padding-bottom:	Calc(60px - 1px);
+	z-index:		3;
+	min-height:		18px;
+}
+
+/*	Configuración	→ Semanas	→ [► Dato ◄] */
+#confSemCajDato{
+	position:	absolute;
+	width:		100%;
+	
+	top:		43%;
+	font-size:	1.5em;
+	z-index:	2;
+}
+
+/*	Configuración	→ Semanas	→ [► Subir ◄] */
+#confSemCajSubir{
+	position:		relative;
+	width:			100%;
+	padding-top:	Calc(60px - 1px);
+	padding-bottom:	30px;
+	z-index:		3;
+	min-height:		18px;
+}
+
+/*	Configuración	→ [► Intervalo ◄] */
+#confIntervalo{
+	float:		left;
+	width:		66%;
+	
+	text-align:	center;
+}
+
+/*	Configuración	→ Intervalo	→ [► Título ◄] */
+#confIntTitulo{
+	float:		left;
+	width:		100%;
+	
+	font-size:	1.2em;
+}
+
+/*	Configuración	→ Intervalo	→ [► Caja ◄]*/
+#confIntCaja{
+	position:	relative;
+	float:		left;
+	width:		100%;
+	z-index:	3;
+}
+
+/*	Configuración	→ Intervalo	→ [► Subir ◄]*/
+#confIntCajSubir{
+	position:		relative;
+	width:			100%;
+	padding-top:	10px;
+	padding-bottom:	20px;
+	z-index:		3;
+	min-height:		18px;
+}
+
+/*	Configuración	→ Intervalo	→ [► Dato ◄]*/
+#confIntCajDato{
+	position:	absolute;
+	width:		100%;
+	
+	top:		35%;
+	font-size:	1.5em;
+	z-index:	2;
+}
+
+/*	Configuración	→ Intervalo	→ [► Bajar ◄]*/
+#confIntCajBajar{
+	position:		relative;
+	width:			100%;
+	padding-top:	20px;
+	padding-bottom:	10px;
+	z-index:		3;
+	min-height:		18px;
+}

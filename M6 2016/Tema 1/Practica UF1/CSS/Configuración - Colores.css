@@ -5,6 +5,14 @@
 	
 	float = flotar a algún lado del padre;
 	
+	
+	Transiciones
+		transition-delay:        0.5s;
+		transition-duration:        0.75s;
+		transition-property:        top, height;
+		transition-timing-function: ease-in-out;
+			Ejemplos timing-function (Animación)(www.w3schools.com/css/tryit.asp?filename=trycss3_animation_speed)
+	
 	Animaciones
 	
 		• Retraso (timepo) (www.w3schools.com/cssref/css3_pr_animation-delay.asp)
@@ -83,140 +91,51 @@ WEB
 		src: url("/recursos/fuentes/Minecrafter.Alt.ttf");
 	}
 */
-
-*
-{
-	margin: 0px;
-	padding: 0px;
-}
 h1{
-	text-align: center;
-	padding: 10px 0px;
+	margin-top:	3px;
+	margin-bottom:	5px;
+	font-family:	OCR A;
 }
-#tablaDiv{
-	margin-left: 10%;
-	width: 80%;
+#confTitHoras,
+#confTitSemanas{
+	font-family:		Verdana;
 }
-table *{
-	text-align: center;
+#confIniTitulo,
+#confFinTitulo,
+#confSemTitulo,
+#confIntTitulo{
+	font-family:		Arial;
 }
-table{
-	width: 100%;
-	border-collapse: collapse;
+#confIniCajDato,
+#confFinCajDato,
+#confSemCajDato,
+#confIntCajDato{
+	font-family:		Magneto;
 }
-
-#configuraciones input{
-	width: 50px;
-	text-align: right;
+#confInicial,
+#confFinal,
+#confSemanas,
+#confIntervalo{
+	background-color: rgba(72, 72, 255, 1);
+	border-radius:	15% 15% 10px 10px;
+	border: solid 2px rgba(92, 92, 255, 0.7);
 }
-table input{
-	width: 100%;
-}
-
-/*
-	CONFIDURACIÓN
-*/
-
-/*Max Width: Titulo(34) + confHorInicio(50px) + confHorMedio*/
-#configuracion{
-	max-height:	Calc(34px + 50px + 50px);
-	width: 100%;
-	float: left;
-}
-
-/*HORAS*/
-#confTitHoras{
-	text-align:	center;
-	min-height: 35px;
-}
-#confTitHoras, #confHoras{
-	float:		left;
-	width:	66.66%;
-}
-
-
-/*SEMANAS*/
-/*Al modificar:
-	width:	#confSemCaja
-*/
-#confSemTitulo{
-	text-align:	center;
-	height: 35px;
+#confInicial,
+#confFinal{
+	width:	Calc(33% - 4px);
 }
 #confSemanas{
-	float:		right;
-	width:	Calc(100% - 66.66%);
+	width:	Calc(100% - 66% - 4px);
+	padding: 2px 0px;
+}
+#confIntervalo{
+	width:	Calc(66% - 4px);
 }
 
-#confHoras{
-	min-height:	35px;
-}
-
-#confHorInicio, #confHorFinal,
-#confHorMedio{
-	height: 50px;
-}
-
-#confHorInicio, #confHorFinal{
-	width: 50%;
-}
-#confHorInicio,
-#confHorMedio{
-	float:	left;
-}
-#confHorFinal{
-	float:	right;
-}
-#confHorMedio{
-	width:	100%;
-}
-
-#confHorIniTitulo, #confHorFinTitulo, #confHorMedTitulo{
-	text-align: center;
-	height: 33.33%;
-}
-#confHorIniTitulo, #confHorFinTitulo, #confHorMedTitulo,
-#confHorIniMas, #confHorFinMas, #confHorMedMas,
-#confHorIniMenos, #confHorFinMenos, #confHorMedMenos{
-	float: left;
-	width: 100%;
-}
-
-#confSemCajaMas, #confSemCajaMenos{
-	float:	right;
-	width:	100%;
-	height:	50%;
-	
-}
-#confSemDato{
-	text-align:	center;
-	float:	right;
-	width:	100%;
-	height:	100%;
-
-	margin-bottom: -50%;
-}
-
-#confHorIniMas, #confHorFinMas, #confHorMedMas,
-#confHorIniMenos, #confHorFinMenos, #confHorMedMenos{
-	height: Calc(100% - 66.66%);
-	z-index: 10;
-}
-
-#confHorIniDato,
-#confHorMedDato,
-#confHorFinDato{
-	text-align:		center;
-	float:			left;
-	width:			100%;
-	height:			Calc(100% - 33.33%);
-	
-	margin-bottom:	-33%;
-}
-
-/*height = 100% - tituloSemanas*/
-#confSemCaja{
-	float:	right;
-	width:	100%;
-	height:	100px;
+#confIniCaja,
+#confFinCaja,
+#confSemCaja,
+#confIntCaja{
+	background-color: rgba(128, 128, 255, 1);
+	border-radius:	12% 12% 10px 10px
 }

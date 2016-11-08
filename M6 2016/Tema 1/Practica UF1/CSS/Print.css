@@ -1,0 +1,26 @@
+﻿#iconPrintCancelar{
+	display: none;
+}
+#iconPrint,
+#iconPrintCancelar{
+	position:	fixed;
+	top:		10px;
+	
+		transition-duration:        1.5s;
+		transition-property:        left, right;
+		transition-timing-function: ease-out;
+}
+[tamaño="xs"] #iconPrint{ left:	5%; }
+[tamaño="sm"] #iconPrint{ left:	10%; }
+[tamaño="md"] #iconPrint{ left:	13%; }
+[tamaño="lg"] #iconPrint{ left:	15%; }
+
+[tamaño="xs"] #iconPrintCancelar{ right:	5%; }
+[tamaño="sm"] #iconPrintCancelar{ right:	10%; }
+[tamaño="md"] #iconPrintCancelar{ right:	13%; }
+[tamaño="lg"] #iconPrintCancelar{ right:	15%; }
+
+#iconPrint img,
+#iconPrintCancelar img{
+	width:	35px;
+}

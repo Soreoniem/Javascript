@@ -1,0 +1,207 @@
+﻿<html> 
+<head> 
+	<title>Practica UF1</title> 
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+	<!--CSS--> 
+	<link rel="stylesheet" type="text/css" href=".\CSS\Configuración - Posicion.css"/> 
+	<link rel="stylesheet" type="text/css" href=".\CSS\Configuración - Colores.css"/> 
+	<link rel="stylesheet" type="text/css" href=".\CSS\colores.css"/>
+	<link rel="stylesheet" type="text/css" href=".\CSS\Horario_Completo.css"/>
+	<link rel="stylesheet" type="text/css" href=".\CSS\Pie.css"/>
+	<link rel="stylesheet" type="text/css" href=".\CSS\Print.css"/>
+	
+	<!--JQuery--> 
+	<script type="text/javascript" src=".\JQuery\JQuery.js"></script> 
+	
+	<!--Javascript--> 
+	<script type="text/javascript" src=".\Javascript\Javascript - Metodos de ayuda.js"></script> 
+	<script type="text/javascript" src=".\Javascript\Practica UF1.js"></script> 
+	<script type="text/javascript" src=".\Javascript\Imprimir.js"></script> 
+	<script type="text/javascript" src=".\Javascript\Date.js"></script> 
+</head>
+<body onload="iniciar(), generarImpresoras(), generarPie()"
+	onresize="actualizarTamañoVentana()">
+	<style id="estilosExtra">
+	</style>
+	<div id="iconPrint"
+		onclick="impRatClick()"
+		onmousedown="impRatAbajo(this)"
+		onmouseup="impRatArriba(this)"
+		onmouseenter="impRatEntrar(this)"
+		onmouseleave="impRatSalir(this)"
+	>
+	</div>
+	<div id="iconPrintCancelar"
+		onclick="impRatClickCancelar()"
+		onmousedown="impRatAbajoCancelar(this)"
+		onmouseup="impRatArribaCancelar(this)"
+		onmouseenter="impRatEntrarCancelar(this)"
+		onmouseleave="impRatSalirCancelar(this)"
+	>
+	</div>
+	<h1 class="fondoBlanco_Transparente">Crea tu propio horario</h1>
+
+<!-- [► Configuración ◄] -->
+	<div id="configuracion" class="contenedor fondoHumo">
+
+<!-- Configuración	→ [► Título ◄] (Horas) -->
+		<div id="confTitHoras">
+			Horas
+		</div>
+
+<!-- Configuración	→ [► Título ◄] (Semanas) -->
+		<div id="confTitSemanas">
+			Semanas
+		</div>
+
+<!-- Configuración	→ [► Inicial ◄] -->
+		<div id="confInicial">
+
+<!-- Configuración	→ Inicial	→ [► Título ◄] -->
+			<div id="confIniTitulo">
+				Inicial
+			</div>
+				
+<!-- Configuración	→ Inicial	→ [► Caja ◄] -->
+			<div id="confIniCaja">
+					
+<!-- Configuración	→ Inicial	→ Caja	→	[► Subir ◄] -->
+				<div id="confIniCajSubir"
+					onclick="actualizarDatos(this)"
+					onmousedown="mousePresionarFlecha(this)"
+					onmouseenter="mouseEnterFlecha(this)"
+					onmouseleave="mouseSalirFlecha(this)">
+					<img src="./Imgs/flecha.png" class="flechaArriba"/>
+				</div>
+					
+<!-- Configuración	→ Inicial	→ Caja	→	[► Dato ◄] -->
+				<div id="confIniCajDato">
+					50
+				</div>
+					
+<!-- Configuración	→ Inicial	→ Caja	→	[► Bajar ◄] -->
+				<div id="confIniCajBajar"
+					onclick="actualizarDatos(this)"
+					onmousedown="mousePresionarFlecha(this)"
+					onmouseenter="mouseEnterFlecha(this)"
+					onmouseleave="mouseSalirFlecha(this)">
+					<img src="./Imgs/flecha.png" class="flechaAbajo"/>
+				</div>
+			</div>
+		</div>
+
+<!-- Configuración	→ [Final] -->
+		<div id="confFinal">
+
+<!-- Configuración	→ Final	→ [► Título ◄] -->
+			<div id="confFinTitulo">
+				Final
+			</div>
+				
+<!-- Configuración	→ Final	→ [► Caja ◄] -->
+			<div id="confFinCaja">
+					
+<!-- Configuración	→ Final	→ Caja	→	[► Subir ◄] -->
+				<div id="confFinCajSubir"
+					onclick="actualizarDatos(this)"
+					onmousedown="mousePresionarFlecha(this)"
+					onmouseenter="mouseEnterFlecha(this)"
+					onmouseleave="mouseSalirFlecha(this)">
+					<img src="./Imgs/flecha.png" class="flechaArriba"/>
+				</div>
+					
+<!-- Configuración	→ Final	→ Caja	→	[► Dato ◄] -->
+				<div id="confFinCajDato">
+					50
+				</div>
+					
+<!-- Configuración	→ Final	→ Caja	→	[► Bajar ◄] -->
+				<div id="confFinCajBajar"
+					onclick="actualizarDatos(this)"
+					onmousedown="mousePresionarFlecha(this)"
+					onmouseenter="mouseEnterFlecha(this)"
+					onmouseleave="mouseSalirFlecha(this)">
+					<img src="./Imgs/flecha.png" class="flechaAbajo"/>
+				</div>
+			</div>
+		</div>
+		
+<!-- Configuración	→ [► Semanas ◄] -->
+		<div id="confSemanas">
+
+<!-- Configuración	→ Semanas	→ [► Título ◄] -->
+			<div id="confSemTitulo">
+				Lunes a
+			</div>
+			
+<!-- Configuración	→ Semanas	→ [► Caja ◄] -->
+			<div id="confSemCaja">
+					
+<!-- Configuración	→ Semanas	→ Caja	→	[► Bajar ◄] -->
+				<div id="confSemCajBajar"
+					onclick="actualizarDatos(this)"
+					onmousedown="mousePresionarFlecha(this)"
+					onmouseenter="mouseEnterFlecha(this)"
+					onmouseleave="mouseSalirFlecha(this)">
+					<img src="./Imgs/flecha.png" class="flechaArriba"/>
+				</div>
+					
+<!-- Configuración	→ Semanas	→ Caja	→	[► Dato ◄] -->
+				<div id="confSemCajDato">
+					Domingo
+				</div>
+					
+<!-- Configuración	→ Semanas	→ Caja	→	[► Subir ◄] -->
+				<div id="confSemCajSubir"
+					onclick="actualizarDatos(this)"
+					onmousedown="mousePresionarFlecha(this)"
+					onmouseenter="mouseEnterFlecha(this)"
+					onmouseleave="mouseSalirFlecha(this)">
+					<img src="./Imgs/flecha.png" class="flechaAbajo"/>
+				</div>
+			</div>
+		</div>
+		
+<!-- Configuración	→ [► Intervalo ◄] -->
+		<div id="confIntervalo">
+
+<!-- Configuración	→ Intervalo	→ [► Título ◄] -->
+			<div id="confIntTitulo">
+				Intervalo
+			</div>
+			
+<!-- Configuración	→ Intervalo	→ [► Caja ◄] -->
+			<div id="confIntCaja">
+					
+<!-- Configuración	→ Intervalo	→ Caja	→	[► Subir ◄] -->
+				<div id="confIntCajSubir"
+					onclick="actualizarDatos(this)"
+					onmousedown="mousePresionarFlecha(this)"
+					onmouseenter="mouseEnterFlecha(this)"
+					onmouseleave="mouseSalirFlecha(this)">
+					<img src="./Imgs/flecha.png" class="flechaArriba"/>
+				</div>
+					
+<!-- Configuración	→ Intervalo	→ Caja	→	[► Dato ◄] -->
+				<div id="confIntCajDato">
+					50
+				</div>
+					
+<!-- Configuración	→ Intervalo	→ Caja	→	[► Bajar ◄] -->
+				<div id="confIntCajBajar"
+					onclick="actualizarDatos(this)"
+					onmousedown="mousePresionarFlecha(this)"
+					onmouseenter="mouseEnterFlecha(this)"
+					onmouseleave="mouseSalirFlecha(this)">
+					<img src="./Imgs/flecha.png" class="flechaAbajo"/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="tablaDiv">
+	</div>
+	<div id="pie">
+		Pie sin formato
+	</div>
+</body>
+</html>
