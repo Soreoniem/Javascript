@@ -1,0 +1,14 @@
+﻿*
+{
+	margin:			0 auto;
+	text-align:		center;
+    font-family:	monospace;
+}
+
+/*Elimiar al conectar CSS*/
+h1 {
+	color:			green;
+    font-weight:	bold;
+    border-bottom:	solid 1px rgba(0,128,0,0.5);
+	margin-bottom:	5px;
+}
