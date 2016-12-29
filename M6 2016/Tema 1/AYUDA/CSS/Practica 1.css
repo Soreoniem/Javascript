@@ -1,0 +1,57 @@
+﻿h1{
+	font-family:		Arial;
+	padding-left:		120px;
+}
+
+body{
+	font-family:		Arial;
+	background-color:	lightblue;
+}
+
+table{
+	font-family:		"Arial",Arial;
+	border:				2px solid;
+	border-collapse:	collapse;
+}
+
+th{
+	font-size:			13px;
+	font-weight:		normal;
+	padding:			8px;
+	background:			#b9c9fe;
+	border-top: 		4px solid #aabcfe;
+	border-bottom:		1px solid #fff; color: #039;
+}
+
+tr td {
+	background:			#e8edff;
+	border-bottom:		1px solid #fff;
+	color:				#669;
+	border-top:			1px solid transparent;
+}
+
+tr:hover td{
+	background:			#d0dafd;
+	color:				#339;
+}
+
+tr td:first-child{
+	min-width:			10px;
+	width:				30px;
+	height:				30px;
+	text-align:			center;
+	border:				2px solid;
+}
+
+tr:nth-child(1) td{
+	text-align:			center;
+	border:				2px solid;
+}
+
+table input{
+	width:				100%;
+	border-top:			1px solid #aabcfe;
+	border-bottom:		1px solid #fff;
+	color:				#039;
+	text-align:			center;
+}
